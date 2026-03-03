@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Western Village Eye
 
-## Getting Started
+Almost Uncivilized — Independent journalism for Edwards, Colorado and Eagle County.
 
-First, run the development server:
+## Quick Deploy to Vercel
+
+1. Go to [vercel.com](https://vercel.com) and sign in
+2. Click "Add New..." → "Project"
+3. Import this project from GitHub (you'll need to connect your GitHub account)
+4. In the Configure Project screen:
+   - Framework Preset: Next.js
+   - Build Command: `next build` (or leave as default)
+   - Output Directory: `.next` (or leave as default)
+5. Click "Deploy"
+
+## Local Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Adding Content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses Sanity.io as a headless CMS. To add content:
 
-## Learn More
+1. Go to [sanity.io/manage](https://www.sanity.io/manage)
+2. Select your project (osrppxu6)
+3. Use the Sanity Studio to create:
+   - Volumes (e.g., Volume 1, 2026)
+   - Articles (title, author, content)
+   - Editions (links Volume + Articles)
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+├── src/
+│   ├── app/
+│   │   ├── page.tsx         # Homepage
+│   │   ├── about/           # About page
+│   │   ├── edition/[slug]/  # Flipbook viewer
+│   │   └── search/          # Search results
+│   ├── components/
+│   │   ├── Header.tsx       # Navigation
+│   │   ├── Footer.tsx
+│   │   └── Flipbook.tsx     # Page-flip component
+│   └── lib/
+│       ├── sanity.ts         # Sanity client
+│       └── sanity-schema.ts  # Content types
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environment Variables
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For production, set these in Vercel:
+- `NEXT_PUBLIC_SANITY_PROJECT_ID`: osrppxu6
+- `NEXT_PUBLIC_SANITY_DATASET`: production
+- `NEXT_PUBLIC_SANITY_API_VERSION`: 2024-01-01
