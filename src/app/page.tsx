@@ -43,7 +43,7 @@ export default async function Home() {
               
               <div className="rough-border bg-white p-6 flex flex-col md:flex-row gap-8">
                 <div className="md:w-1/2 flex items-start justify-center">
-                  <div className="rough-border overflow-hidden" style={{maxHeight: '600px'}}>
+                  <div className="rough-border overflow-hidden" style={{width: '650px', height: '800px'}}>
                     <Image
                       src={
                         latestEdition.coverImage
@@ -53,7 +53,8 @@ export default async function Home() {
                       alt={`Edition ${latestEdition.editionNumber}`}
                       width={1280}
                       height={1920}
-                      className="h-[600px] w-auto"
+                      style={{width: '650px', height: '800px'}}
+                      className="object-fill"
                     />
                   </div>
                 </div>
