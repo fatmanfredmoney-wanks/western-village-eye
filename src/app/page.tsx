@@ -43,20 +43,18 @@ export default async function Home() {
               
               <div className="rough-border bg-white p-6 flex flex-col md:flex-row gap-8">
                 <div className="md:w-1/3">
-                  {latestEdition.coverImage ? (
-                    <div className="relative h-64 w-full rough-border">
-                      <Image
-                        src={urlFor(latestEdition.coverImage).url()}
-                        alt={`Edition ${latestEdition.editionNumber}`}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  ) : (
-                    <div className="h-64 bg-tan flex items-center justify-center rough-border">
-                      <BookOpen className="w-16 h-16 text-forest" />
-                    </div>
-                  )}
+                  <div className="relative h-64 w-full rough-border">
+                    <Image
+                      src={
+                        latestEdition.coverImage
+                          ? urlFor(latestEdition.coverImage).url()
+                          : `/editions/volume-${latestEdition.volume.volumeNumber}-edition-${latestEdition.editionNumber}-cover.png`
+                      }
+                      alt={`Edition ${latestEdition.editionNumber}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 </div>
                 <div className="md:w-2/3 flex flex-col justify-center">
                   <p className="text-sm text-gray-600 mb-2">
