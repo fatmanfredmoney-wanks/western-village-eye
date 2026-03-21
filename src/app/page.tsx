@@ -106,7 +106,7 @@ export default async function Home() {
                           src={urlFor(edition.coverImage).url()}
                           alt={`Edition ${edition.editionNumber}`}
                           fill
-                          className="object-cover"
+                      className="object-cover scale-125"
                         />
                       ) : (
                         <div className="flex items-center justify-center h-full">
