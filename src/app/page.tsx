@@ -52,8 +52,8 @@ export default async function Home() {
                     alt={`Edition ${latestEdition.editionNumber}`}
                     width={1280}
                     height={1920}
-                    style={{width: '750px', height: '900px'}}
-                    className="rough-border object-fill"
+                    style={{width: '800px', height: '900px', background: 'none'}}
+                    className="object-fill"
                   />
                 </div>
                 <div className="flex flex-col justify-center">
