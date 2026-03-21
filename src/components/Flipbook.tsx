@@ -72,28 +72,12 @@ function SocialShare({ title, url }: { title: string; url: string }) {
   return (
     <div className="flex items-center gap-2 mt-4">
       <a
-        href={shareLinks.facebook}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="p-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-sm"
-      >
-        Facebook
-      </a>
-      <a
         href={shareLinks.twitter}
         target="_blank"
         rel="noopener noreferrer"
         className="p-2 bg-black text-white rounded hover:bg-gray-800 transition-colors text-sm"
       >
         X
-      </a>
-      <a
-        href={shareLinks.linkedin}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="p-2 bg-blue-700 text-white rounded hover:bg-blue-800 transition-colors text-sm"
-      >
-        LinkedIn
       </a>
       <button
         onClick={handleCopy}
@@ -192,10 +176,7 @@ export default function Flipbook({ edition }: { edition: Edition }) {
   const backCover = (
     <div className="flipbook-page-inner flex flex-col justify-center items-center text-center p-8 bg-forest text-cream">
       <h2 className="text-3xl font-bold mb-4 font-display">The Western Village Eye</h2>
-      <p className="text-lg mb-4">Almost Uncivilized</p>
-      <p className="text-sm opacity-70 mb-8">
-        Independent journalism from Edwards, Colorado
-      </p>
+      <p className="text-lg mb-4">&quot;Almost Uncivilized&quot;</p>
       <SocialShare 
         title={`Volume ${edition.volume.volumeNumber}, Edition ${edition.editionNumber} - The Western Village Eye`} 
         url={typeof window !== 'undefined' ? window.location.href : ''} 
