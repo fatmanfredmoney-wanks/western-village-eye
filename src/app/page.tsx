@@ -42,7 +42,7 @@ export default async function Home() {
               </div>
               
               <div className="rough-border bg-white p-6 flex flex-col md:flex-row gap-8">
-                <div className="flex items-center justify-center">
+                <div className="md:w-1/2 shrink-0">
                   <Image
                     src={
                       latestEdition.coverImage
