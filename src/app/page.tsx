@@ -52,7 +52,7 @@ export default async function Home() {
                       }
                       alt={`Edition ${latestEdition.editionNumber}`}
                       fill
-                      className="object-contain"
+                      className="object-cover"
                     />
                   </div>
                 </div>
