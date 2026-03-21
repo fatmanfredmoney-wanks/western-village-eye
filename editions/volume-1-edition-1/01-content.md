@@ -1,0 +1,138 @@
+# Skeleton
+
+The Vail Daily is leftist and it is the only news source in the valley. What's worse is that it tries to present itself as objective. A friend called it the Fail Daily but it isn't a failure, it's very successful and that's part of the problem.
+
+We want to offer an alternative opinion. I don't want this town turning into a socialist/communist shit hole.
+
+## Edition 1
+
+- Intro for Edition 1
+- Opinions on Valley Living
+- Opinions on current events
+- In the valley
+- Eagle County history
+- Where the best huevos rancheros are
+- Movies to watch
+- Shows to watch
+- Books to read
+- Crypto education
+- Gun education
+- Tech DIY
+- Privacy
+
+# Intro
+
+## Volume 1, Edition 1
+
+A little background, but not too much. I grew up in the Vail Valley. (Or Eagle Valley but I prefer the way Vail Valley sounds.) Born and raised. I left the Valley for some years after graduating from University. I'm back now I've got some complaints.
+
+Why are so many people voting left? Why is there so many god damn socialist and communists here? Why is everyone so fucking weak now? A bunch of whiners and sissies. Too many entitled cunts (I mean cunt in the Australian sense that is gender neutral). Everyone wants to control everyone else, down to their neighbor's dogs.
+
+The town has grown incredibly since I grew up. Eagle and Gypsum are insane these days. It hurts one's heart to see but I know as long as it's a great place to live you can't stop its growth. It has its pros and cons.
+
+I want it to grow into a freedom loving place with a high standard of living.
+
+# Opinions
+
+## On the War in Iran
+
+I don't know what to think about the current war in Iran. I've heard, read, and seen so many different takes on it I am having trouble coming to any conclusions about it. It seems reliably true that the Supreme Leader, the Ayatollah, was a brutal dictator who killed and tortured many of his citizens for unjust reasons. It seems he was unpopular but I can't tell how unpopular. Do I believe that's the real reason why Trump decided to attack Iran with missiles alongside Israel? No I don't. I think makes a lot of sense in terms of geopolitical strategy, and empire. Iran has lots of oil, and a lot of that oil supposedly goes to China. Weakening one of China's main suppliers of oil helps U.S.A.
+
+Then there's the Israel question. I hope it's not true but it seems like Israel and its intelligence apparatus have infiltrated government of USA at the highest levels. It's possible that they heavily influenced Trump into making the decision. Iran is the main enemy of Israel in the Middle East, if they are removed not much can stop Israel from expanding in the region.
+
+The Saudi's gave Trump a couple billion dollars or something to the tone of and they also want/would benefit from the destruction of Iran.
+
+Now for some less mainstream takes. The religious aspect. Just about everything that happens in the Middle East is religious somehow. Many people on social media think that the war is biblical. Whether its the Jews, the Zionists in particular, enacting their version of crusade or Ji-Had, or the Christians creating an end of world situations in order to cause Jesus to return and save the world, or possibly a Muslim Ji-had to take back Mecca from the Infidels. Even crazier sounding is the popular theory online that the Ashkenazi Jews, who supposedly aren't genealogical Jews but converts from the Khazar empire, want to create Pax Judaica as part of their grand scheme of a one world government.
+
+# Valley Living
+
+## The Housing Crisis
+
+Yes houses are expensive in the Valley. Cost of living is expensive in the Valley. Why does this surprise anyone? It's a relatively small area in high demand. I have driven through the Miller Ranch neighborhood many times and it always surprises me how these "struggling" people and families have new fancy expensive cars in their deed restricted houses. Anyone has the right to move here, but no one is entitled to a life of luxury. Do you really think the government can solve this?
+
+Here's an idea: build a bunch of "affordable houses" using tax payer money so that more "locals" can live and work here. What will happen? The population of workers increases. What else will happen? Wages will remain the same or go down as the labor supply increases. Here's another idea: Don't build "affordable" housing, the number of workers in the valley goes down or remains the same, and wages go up as demand for workers increases. So what is the problem you want to solve with the Regional Housing Authority? Building "affordable housing" (which still isn't affordable hence the "") will not make living in the Valley more affordable for blue collar workers. It will increase traffic and increase environmental strain and damage to the Valley ecosystem. The Valley will continue to grow and so will the gap between the "rich" and "poor." I have driven through the Miller Ranch neighborhood many times and it always surprises me how these "poor" people have new fancy expensive cars in their deed restricted houses. Anyone has the right to move here, but no one is entitled to a life of luxury.
+
+# Huevos Rancheros in the Valley
+
+## A Culinary Investigation
+
+In my opinion, and I am aware no one is asking, the best tasting Huevos Rancheros in the Valley, that I have tried as of March 2026, are at Cafe 163. The only problem is that the portion is small is price is a little high.
+
+The second best Huevos Rancheros in the Valley that I have tried is at Route 6 Cafe. The only problem is that now you can only get them there on weekends.
+
+The third best Huevos Rancheros that I tried in the Valley is probably at Fiesta Jalisco. The problem here is that the Huevos Rancheros are just normal but if order it with carne asada its great. The carne asada is soooo delicious.
+
+Runner up would be Fiesta's, who have a great bang for your buck Huevos Rancheros but consistency is lacking, sometimes amazing, sometimes not so much.
+
+# Books to Read
+
+## (Or listen to I guess…)
+
+**1. Snow Crash**  
+By Neal Stephenson
+
+**2. Anti-fragile: Things That Gain from Disorder**  
+By Nassim Nicholas Taleb
+
+**3. Blood in the Streets: Investment Profits in a World Gone Mad**  
+By James Dale Davidson and William Rees-Mogg
+
+# Movies Worth Your Time
+
+- **The Matrix** (the first one)
+- **Ghost in the Shell**
+- **Perfume: The Story of a Murderer**
+
+# Shows Worth Your Time
+
+- **Slow Horses**
+- **Cowboy Bebop** (original version)
+- **The Sopranos**
+
+# Crypto 101
+
+## Bitcoin First
+
+## A Brief Introduction to Bitcoin
+
+To understand Bitcoin, it helps to first understand money and how it works today.
+
+Most of the money people use today—like dollars, euros, or yen—is fiat money. Fiat currency is money issued and controlled by governments and central banks. Its value comes from government authority (monopoly on violence) and public trust, and governments along with central banks can create more of it whenever they choose. Because new money can be printed, the supply is not fixed and inflation can occur over time. This is opposed to the previous system which was tied to gold, where paper money represented a promise of a specified amount of gold.
+
+Bitcoin was created as an alternative to this system.
+
+Bitcoin is a digital currency that operates without banks or governments. Instead of a central authority controlling it, Bitcoin runs on a decentralized network of computers around the world. This network records transactions in a digital public ledger called the blockchain, which keeps a transparent and tamper-resistant record of who sent money to whom.
+
+Transactions are verified through a process called Bitcoin mining. In mining, powerful computers compete to solve complex cryptographic puzzles. The first computer to solve the puzzle confirms a new "block" of transactions and adds it to the blockchain. As a reward for securing the network, the miner receives newly created bitcoin plus transaction fees. The reason this process adds security to the blockchain is because it requires large amounts of electricity for the computer to solves the extremely complex puzzle, essentially making each bitcoin backed by electricity. Therefore, as of March 2026, if someone tried to take over the bitcoin blockchain they would need around 8-10 gigawatts of continuous power, plus around $10 billion worth of hardware set up installed and operating without anyone noticing (this is called a 51% attack as the only way to change the bitcoin protocol is with 51% of the miners agreeing).
+
+Unlike fiat currencies, Bitcoin has a limited supply. The system is designed so that only 21 million bitcoins will ever exist, making it scarce. New bitcoins are gradually created through mining, and the amount issued decreases over time.
+
+### In Summary
+
+**Fiat money:** Government-issued money with an expandable supply.
+
+**Bitcoin:** A decentralized digital currency with no central authority.
+
+**Mining:** The process that secures the network and creates new bitcoins.
+
+**Blockchain:** The digital public ledger that records all Bitcoin transactions.
+
+Because of its decentralization and limited supply, many people see Bitcoin as a new type of money or "digital gold," while others view it primarily as a speculative asset. Either way, it represents a new approach to how money and financial systems can operate on the internet.
+
+# Gun Education
+
+You got until August to buy an AR, then the fucking hippies and the commies are going to make it close to impossible in Colorado.
+
+# Tech DIY (Do-It-Yourself) *(ya bum)*
+
+The current rage on the internet is OpenClaw. An "autonomous bot." Agentic AI. Maybe I'm just fucking stupid (probably) but the thing doesn't seem that autonomous to me. I can't get it to do shit, except spend a bunch of money in API credits. After realizing I had a lot of money on it I watched a YouTube video that spoke of Ollama (Open Source) and running agents locally (on your own computer). Now supposedly you can run AI models (aka LLM) on your own computer for free and with real privacy. Well you can but you need a damn good computer to have something actually powerful. With 16gb of ram you can run this model called Qwen something something and its ok but I haven't been able to see how its going to change the world. I'm probably wrong and just don't know what I'm doing yet but I do know that the damn kids making these videos on YouTube have me nearly punching the screen.
+
+# Privacy
+
+Fuck the digital ID's they're trying to force on us. Also fuck the Patriot Act. Fuck biometrics too, you don't have to let them take your picture at the airport even though they try and intimidate you into it. Anyone who gives the argument that "I don't have anything to hide" simply does't understand the issue and where things can go down the road.
+
+# Divulged
+
+## People who felt like sharing their thoughts
+
+*This section is reserved for contributions from readers.*

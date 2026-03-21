@@ -1,0 +1,50 @@
+body {
+  font-family: "IM Fell English", serif;
+  background-color: #f8f1e5;
+  background-image: url("parchment-texture.png");
+  color: #3a2412;
+  line-height: 1.8;
+  padding: 20px;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  border-bottom: 1px solid #8b4513;
+  font-weight: normal;
+  color: #5a3a1a;
+}
+
+h1 {
+  font-size: 2.5em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+a {
+  color: #6b3e26;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Parchment texture fallback */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.1'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: -1;
+}

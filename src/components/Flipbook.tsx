@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { ArrowLeft, Share2, Copy, Check } from "lucide-react";
+import { ArrowLeft, Share2, Copy, Check, Download } from "lucide-react";
 
 const HTMLFlipBook = dynamic(() => import("react-pageflip"), {
   ssr: false,
@@ -105,6 +105,7 @@ function SocialShare({ title, url }: { title: string; url: string }) {
 }
 
 export default function Flipbook({ edition }: { edition: Edition }) {
+  const epubPath = `/editions/volume-${edition.volume.volumeNumber}-edition-${edition.editionNumber}.epub`;
   const [currentPage, setCurrentPage] = useState(0);
   const flipBookRef = useRef<any>(null);
 
@@ -199,8 +200,18 @@ export default function Flipbook({ edition }: { edition: Edition }) {
             <ArrowLeft className="w-4 h-4" />
             Back to Home
           </Link>
-          <div className="text-sm text-gray-600">
-            Page {currentPage + 1} of {pages.length}
+          <div className="flex items-center gap-4">
+            <a
+              href={epubPath}
+              download
+              className="flex items-center gap-2 bg-forest text-cream px-4 py-2 rounded-lg hover:bg-brown transition-colors text-sm shadow-md"
+            >
+              <Download className="w-4 h-4" />
+              Download EPUB
+            </a>
+            <div className="text-sm text-gray-600">
+              Page {currentPage + 1} of {pages.length}
+            </div>
           </div>
         </div>
         

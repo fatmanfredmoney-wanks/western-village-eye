@@ -1,19 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { BookOpen, ArrowRight } from "lucide-react";
-import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { getVolumes, getLatestEdition, getEditions } from "@/lib/sanity";
+import { getLatestEdition, getEditions, urlFor } from "@/lib/sanity";
 
 export const revalidate = 60;
 
 export default async function Home() {
-  let volumes: any[] = [];
   let latestEdition: any = null;
   let editions: any[] = [];
 
   try {
-    volumes = await getVolumes();
     latestEdition = await getLatestEdition();
     editions = await getEditions();
   } catch (error) {
@@ -22,7 +19,6 @@ export default async function Home() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header volumes={volumes} />
       
       <main className="flex-1">
         <section className="bg-brown text-cream py-16 paper-texture">
@@ -50,7 +46,7 @@ export default async function Home() {
                   {latestEdition.coverImage ? (
                     <div className="relative h-64 w-full rough-border">
                       <Image
-                        src={latestEdition.coverImage}
+                        src={urlFor(latestEdition.coverImage).url()}
                         alt={`Edition ${latestEdition.editionNumber}`}
                         fill
                         className="object-cover"
@@ -109,7 +105,7 @@ export default async function Home() {
                     <div className="h-40 bg-tan relative">
                       {edition.coverImage ? (
                         <Image
-                          src={edition.coverImage}
+                          src={urlFor(edition.coverImage).url()}
                           alt={`Edition ${edition.editionNumber}`}
                           fill
                           className="object-cover"
