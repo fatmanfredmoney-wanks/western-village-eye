@@ -43,7 +43,7 @@ export default async function Home() {
               
               <div className="rough-border bg-white p-6 flex flex-col md:flex-row gap-8">
                 <div className="md:w-1/3">
-                  <div className="relative w-full rough-border bg-tan" style={{aspectRatio: '2/3'}}>
+                  <div className="relative w-full rough-border bg-tan" style={{aspectRatio: '3/4'}}>
                     <Image
                       src={
                         latestEdition.coverImage
