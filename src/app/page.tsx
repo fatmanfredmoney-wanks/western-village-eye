@@ -42,8 +42,8 @@ export default async function Home() {
               </div>
               
               <div className="rough-border bg-white p-6 flex flex-col md:flex-row gap-8">
-                <div className="md:w-1/2">
-                  <div className="rough-border overflow-hidden">
+                <div className="md:w-1/2 flex items-start justify-center">
+                  <div className="rough-border overflow-hidden" style={{maxHeight: '400px'}}>
                     <Image
                       src={
                         latestEdition.coverImage
@@ -53,7 +53,7 @@ export default async function Home() {
                       alt={`Edition ${latestEdition.editionNumber}`}
                       width={1280}
                       height={1920}
-                      className="w-full h-auto"
+                      className="h-[400px] w-auto"
                     />
                   </div>
                 </div>
