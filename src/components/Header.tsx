@@ -95,7 +95,7 @@ export default function Header({ volumes }: { volumes: Volume[] }) {
                 The Western Village Eye
               </h1>
               <p className="text-xs text-cream/70 tracking-widest uppercase">
-                "Almost Uncivilized"
+                &quot;Almost Uncivilized&quot;
               </p>
             </div>
           </Link>

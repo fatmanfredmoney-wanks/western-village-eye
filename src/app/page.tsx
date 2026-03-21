@@ -26,7 +26,7 @@ export default async function Home() {
             <h1 className="text-5xl font-bold mb-4 font-display">
               The Western Village Eye
             </h1>
-            <p className="text-xl mb-8 text-cream/80">"Almost Uncivilized"</p>
+            <p className="text-xl mb-8 text-cream/80">&quot;Almost Uncivilized&quot;</p>
             <p className="max-w-2xl text-lg">
               Opinions and thoughts from and for Eagle County, Colorado.
             </p>
