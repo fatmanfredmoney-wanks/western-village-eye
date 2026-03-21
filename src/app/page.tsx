@@ -42,7 +42,7 @@ export default async function Home() {
               </div>
               
               <div className="rough-border bg-white p-6 flex flex-col md:flex-row gap-8">
-                <div className="flex items-start justify-center">
+                <div className="flex items-center justify-center">
                   <Image
                     src={
                       latestEdition.coverImage
@@ -50,10 +50,9 @@ export default async function Home() {
                         : `/editions/volume-${latestEdition.volume.volumeNumber}-edition-${latestEdition.editionNumber}-cover.png`
                     }
                     alt={`Edition ${latestEdition.editionNumber}`}
-                    width={1280}
-                    height={1920}
-                    style={{width: '800px', height: '900px', background: 'none'}}
-                    className="object-fill"
+                    width={1920}
+                    height={1080}
+                    className="w-full h-auto"
                   />
                 </div>
                 <div className="flex flex-col justify-center">
