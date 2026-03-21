@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Share2, Copy, Check, Download } from "lucide-react";
 
@@ -27,6 +28,7 @@ interface Edition {
   _id: string;
   editionNumber: number;
   volume: { volumeNumber: number; year: string };
+  coverImage?: any;
   articles: Article[];
 }
 
@@ -119,6 +121,20 @@ export default function Flipbook({ edition }: { edition: Edition }) {
     }
   };
 
+  const coverPage = (
+    <div className="flipbook-page-inner flex flex-col justify-center items-center bg-brown text-cream relative overflow-hidden">
+      <div className="absolute inset-0">
+        <Image
+          src={`/editions/volume-${edition.volume.volumeNumber}-edition-${edition.editionNumber}-cover.png`}
+          alt="Cover"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+    </div>
+  );
+
   const tocPage = (
     <div className="flipbook-page-inner flex flex-col justify-center items-center text-center p-8">
       <div className="rough-border p-8 bg-cream">
@@ -131,7 +147,7 @@ export default function Flipbook({ edition }: { edition: Edition }) {
             {edition.articles.map((article, index) => (
               <li key={article._id}>
                 <button
-                  onClick={() => goToPage(index + 1)}
+                  onClick={() => goToPage(index + 2)}
                   className="hover:text-forest hover:underline text-left"
                 >
                   <span className="font-bold">{index + 1}.</span> {article.title}
@@ -187,7 +203,7 @@ export default function Flipbook({ edition }: { edition: Edition }) {
     </div>
   );
 
-  const pages = [tocPage, ...articlePages, backCover];
+  const pages = [coverPage, tocPage, ...articlePages, backCover];
 
   return (
     <div className="min-h-screen bg-tan/30 paper-texture">
