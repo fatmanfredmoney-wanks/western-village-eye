@@ -42,7 +42,7 @@ export default async function Home() {
               </div>
               
               <div className="rough-border bg-white p-6 flex flex-col md:flex-row gap-8">
-                <div className="md:w-1/3">
+                <div className="md:w-1/2">
                   <div className="rough-border overflow-hidden">
                     <Image
                       src={
@@ -57,7 +57,7 @@ export default async function Home() {
                     />
                   </div>
                 </div>
-                <div className="md:w-2/3 flex flex-col justify-center">
+                <div className="md:w-1/2 flex flex-col justify-center">
                   <p className="text-sm text-gray-600 mb-2">
                     Volume {latestEdition.volume.volumeNumber} • Edition {latestEdition.editionNumber}
                   </p>
