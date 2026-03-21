@@ -43,7 +43,7 @@ export default async function Home() {
               
               <div className="rough-border bg-white p-6 flex flex-col md:flex-row gap-8">
                 <div className="md:w-1/3">
-                  <div className="relative h-64 w-full rough-border">
+                  <div className="relative w-full rough-border bg-tan" style={{aspectRatio: '2/3'}}>
                     <Image
                       src={
                         latestEdition.coverImage
@@ -52,7 +52,7 @@ export default async function Home() {
                       }
                       alt={`Edition ${latestEdition.editionNumber}`}
                       fill
-                      className="object-cover"
+                      className="object-contain"
                     />
                   </div>
                 </div>
