@@ -55,7 +55,7 @@ export default async function Home() {
                     className="w-full h-auto"
                   />
                 </div>
-                <div className="flex flex-col justify-center">
+                <div className="flex flex-col justify-center md:border-l md:border-tan md:pl-8">
                   <p className="text-sm text-gray-600 mb-2">
                     Volume {latestEdition.volume.volumeNumber} • Edition {latestEdition.editionNumber}
                   </p>
