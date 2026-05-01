@@ -87,15 +87,24 @@ export default function Flipbook({ edition }: { edition: Edition }) {
   const epubPath = `/editions/volume-${edition.volume.volumeNumber}-edition-${edition.editionNumber}.epub`;
   const [currentPage, setCurrentPage] = useState(0);
   const flipBookRef = useRef<any>(null);
+  const flipBookInitialized = useRef(false);
 
   const handlePageChange = (e: any) => {
     setCurrentPage(e.data);
   };
 
+  const onInit = (book: any) => {
+    flipBookRef.current = book;
+    flipBookInitialized.current = true;
+  };
+
   const goToPage = (pageIndex: number) => {
-    if (flipBookRef.current) {
-      flipBookRef.current.pageFlip().flipTo(pageIndex);
-    }
+    setCurrentPage(pageIndex);
+    setTimeout(() => {
+      if (flipBookRef.current) {
+        flipBookRef.current.pageFlip().flipTo(pageIndex);
+      }
+    }, 100);
   };
 
   const coverPage = (
@@ -217,6 +226,7 @@ export default function Flipbook({ edition }: { edition: Edition }) {
             showCover={true}
             mobileScrollSupport={true}
             onFlip={handlePageChange}
+            onInit={onInit}
             className="shadow-2xl"
           >
             {pages.map((page, i) => (
