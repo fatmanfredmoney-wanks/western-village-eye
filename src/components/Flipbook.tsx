@@ -10,22 +10,10 @@ const HTMLFlipBook = dynamic(() => import("react-pageflip"), {
   ssr: false,
   loading: () => (
     <div className="flex items-center justify-center h-[600px] bg-cream">
-      <p className="text-brown">Loading...</p>
+      <p className="text-brown">Loading flipbook...</p>
     </div>
   ),
 });
-
-function useFlipBookRef() {
-  const ref = useRef<any>(null);
-  const [ready, setReady] = useState(false);
-
-  const onInit = (book: any) => {
-    ref.current = book;
-    setReady(true);
-  };
-
-  return { ref, ready, onInit };
-}
 
 interface Article {
   _id: string;
@@ -90,22 +78,16 @@ function SocialShare({ title, url }: { title: string; url: string }) {
 
 export default function Flipbook({ edition }: { edition: Edition }) {
   const epubPath = `/editions/volume-${edition.volume.volumeNumber}-edition-${edition.editionNumber}.epub`;
-  const { ref: flipBookRef, onInit } = useFlipBookRef();
+  const [currentPage, setCurrentPage] = useState(0);
+  const flipBookRef = useRef<any>(null);
 
   const handlePageChange = (e: any) => {
     setCurrentPage(e.data);
   };
 
   const goToPage = (pageIndex: number) => {
-    console.log("Going to page:", pageIndex);
     if (flipBookRef.current) {
-      try {
-        flipBookRef.current.pageFlip().flipTo(pageIndex);
-      } catch (err) {
-        console.error("Flip error:", err);
-      }
-    } else {
-      console.log("Ref not ready");
+      flipBookRef.current.pageFlip().flipTo(pageIndex);
     }
   };
 
@@ -260,7 +242,6 @@ export default function Flipbook({ edition }: { edition: Edition }) {
             showCover={true}
             mobileScrollSupport={true}
             onFlip={handlePageChange}
-            onInit={onInit}
             className="shadow-2xl"
           >
             {pages.map((page, i) => (
