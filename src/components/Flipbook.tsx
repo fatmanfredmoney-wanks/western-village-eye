@@ -100,12 +100,16 @@ export default function Flipbook({ edition }: { edition: Edition }) {
 
   const goToPage = (pageIndex: number) => {
     setCurrentPage(pageIndex);
-    setTimeout(() => {
-      if (flipBookRef.current) {
-        flipBookRef.current.pageFlip().flipTo(pageIndex);
-      }
-    }, 100);
   };
+
+  useEffect(() => {
+    if (flipBookRef.current && flipBookInitialized.current) {
+      const flipper = flipBookRef.current.pageFlip();
+      if (flipper) {
+        flipper.flipTo(currentPage);
+      }
+    }
+  }, [currentPage]);
 
   const coverPage = (
     <div className="flipbook-page-inner flex flex-col justify-center items-center bg-brown text-cream relative overflow-hidden">
