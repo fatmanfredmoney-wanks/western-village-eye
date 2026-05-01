@@ -87,7 +87,9 @@ export default function Flipbook({ edition }: { edition: Edition }) {
 
   const goToPage = (pageIndex: number) => {
     if (flipBookRef.current) {
-      flipBookRef.current.pageFlip().flipTo(pageIndex);
+      setTimeout(() => {
+        flipBookRef.current?.pageFlip().flipTo(pageIndex);
+      }, 100);
     }
   };
 
