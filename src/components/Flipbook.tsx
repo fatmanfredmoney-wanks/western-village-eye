@@ -57,12 +57,6 @@ function BlockContent({ blocks }: { blocks: any[] }) {
 function SocialShare({ title, url }: { title: string; url: string }) {
   const [copied, setCopied] = useState(false);
 
-  const shareLinks = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
-    twitter: `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`,
-    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`,
-  };
-
   const handleCopy = () => {
     navigator.clipboard.writeText(url);
     setCopied(true);
