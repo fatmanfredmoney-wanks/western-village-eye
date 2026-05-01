@@ -103,7 +103,7 @@ export default function Flipbook({ edition }: { edition: Edition }) {
   };
 
   useEffect(() => {
-    if (flipBookRef.current && flipBookInitialized.current) {
+    if (flipBookInitialized.current && flipBookRef.current) {
       const flipper = flipBookRef.current.pageFlip();
       if (flipper) {
         flipper.flipTo(currentPage);
