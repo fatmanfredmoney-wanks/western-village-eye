@@ -10,7 +10,7 @@ const HTMLFlipBook = dynamic(() => import("react-pageflip"), {
   ssr: false,
   loading: () => (
     <div className="flex items-center justify-center h-[600px] bg-cream">
-      <p className="text-brown">Loading flipbook...</p>
+      <p className="text-brown">Loading...</p>
     </div>
   ),
 });
