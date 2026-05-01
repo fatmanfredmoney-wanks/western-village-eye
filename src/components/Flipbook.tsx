@@ -86,9 +86,16 @@ export default function Flipbook({ edition }: { edition: Edition }) {
   };
 
   const goToPage = (pageIndex: number) => {
-    if (flipBookRef.current) {
-      flipBookRef.current.pageFlip().flipTo(pageIndex);
+    // Scroll flipbook into view first
+    const flipbookEl = document.querySelector('.react-pageflip');
+    if (flipbookEl) {
+      flipbookEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
+    setTimeout(() => {
+      if (flipBookRef.current) {
+        flipBookRef.current.pageFlip().flipTo(pageIndex);
+      }
+    }, 100);
   };
 
   const nextPage = () => {
@@ -100,12 +107,6 @@ export default function Flipbook({ edition }: { edition: Edition }) {
   const prevPage = () => {
     if (currentPage > 0) {
       goToPage(currentPage - 1);
-    }
-  };
-
-  const goToPage = (pageIndex: number) => {
-    if (flipBookRef.current) {
-      flipBookRef.current.pageFlip().flipTo(pageIndex);
     }
   };
 
