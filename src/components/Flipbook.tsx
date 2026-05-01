@@ -27,6 +27,7 @@ interface Article {
 interface Edition {
   _id: string;
   editionNumber: number;
+  publishedDate: string;
   volume: { volumeNumber: number; year: string };
   coverImage?: any;
   articles: Article[];
@@ -111,12 +112,20 @@ export default function Flipbook({ edition }: { edition: Edition }) {
     </div>
   );
 
+  const formatDate = (dateStr: string) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  };
+
+  const editorName = edition.editionNumber === 1 ? "Decent Stick" : "Lonely Stick";
+
   const tocPage = (
     <div className="flipbook-page-inner flex flex-col justify-center items-center text-center p-8">
       <div className="rough-border p-8 bg-cream">
         <h1 className="text-4xl font-bold mb-2 font-display">Volume {edition.volume.volumeNumber}</h1>
         <h2 className="text-2xl mb-4">Edition {edition.editionNumber}</h2>
-        <p className="text-sm text-gray-600 mb-8">{edition.volume.year}</p>
+        <p className="text-sm text-gray-600 mb-8">{edition.publishedDate ? formatDate(edition.publishedDate) : edition.volume.year}</p>
+        <p className="text-sm text-gray-600 mb-4">Editor: {editorName}</p>
         <div className="border-t border-brown pt-4">
           <h3 className="text-lg font-bold mb-4">Table of Contents</h3>
           <ul className="space-y-3 text-left">
@@ -128,9 +137,6 @@ export default function Flipbook({ edition }: { edition: Edition }) {
                 >
                   <span className="font-bold">{index + 1}.</span> {article.title}
                 </button>
-                {article.author && (
-                  <p className="text-xs text-gray-500 ml-4">by {article.author}</p>
-                )}
               </li>
             ))}
           </ul>
@@ -143,9 +149,6 @@ export default function Flipbook({ edition }: { edition: Edition }) {
     <div key={article._id} className="flipbook-page">
       <div className="flipbook-page-inner">
         <h2 className="text-2xl font-bold mb-2 font-display">{article.title}</h2>
-        {article.author && (
-          <p className="text-sm text-gray-600 mb-4">by {article.author}</p>
-        )}
         <div className="flex-1 overflow-hidden">
           {article.content ? (
             <div className="text-sm leading-relaxed">
