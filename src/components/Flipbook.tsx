@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Share2, Copy, Check, Download } from "lucide-react";
+import { ArrowLeft, ArrowRight, Share2, Copy, Check, Download } from "lucide-react";
 
 const HTMLFlipBook = dynamic(() => import("react-pageflip"), {
   ssr: false,
@@ -106,6 +106,18 @@ export default function Flipbook({ edition }: { edition: Edition }) {
       }
     } else {
       console.log("Ref not ready");
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage < pages.length - 1) {
+      goToPage(currentPage + 1);
+    }
+  };
+
+  const prevPage = () => {
+    if (currentPage > 0) {
+      goToPage(currentPage - 1);
     }
   };
 
@@ -216,8 +228,24 @@ export default function Flipbook({ edition }: { edition: Edition }) {
               <Download className="w-4 h-4" />
               Download EPUB
             </a>
-            <div className="text-sm text-gray-600">
-              Page {currentPage + 1} of {pages.length}
+            <div className="flex items-center gap-2">
+              <button
+                onClick={prevPage}
+                disabled={currentPage === 0}
+                className="p-2 bg-tan rounded hover:bg-brown disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <ArrowLeft className="w-4 h-4" />
+              </button>
+              <span className="text-sm text-gray-600">
+                {currentPage + 1} / {pages.length}
+              </span>
+              <button
+                onClick={nextPage}
+                disabled={currentPage === pages.length - 1}
+                className="p-2 bg-tan rounded hover:bg-brown disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <ArrowRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </div>
