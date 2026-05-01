@@ -15,6 +15,18 @@ const HTMLFlipBook = dynamic(() => import("react-pageflip"), {
   ),
 });
 
+function useFlipBookRef() {
+  const ref = useRef<any>(null);
+  const [ready, setReady] = useState(false);
+
+  const onInit = (book: any) => {
+    ref.current = book;
+    setReady(true);
+  };
+
+  return { ref, ready, onInit };
+}
+
 interface Article {
   _id: string;
   title: string;
@@ -79,7 +91,7 @@ function SocialShare({ title, url }: { title: string; url: string }) {
 export default function Flipbook({ edition }: { edition: Edition }) {
   const epubPath = `/editions/volume-${edition.volume.volumeNumber}-edition-${edition.editionNumber}.epub`;
   const [currentPage, setCurrentPage] = useState(0);
-  const flipBookRef = useRef<any>(null);
+  const { ref: flipBookRef, onInit } = useFlipBookRef();
 
   const handlePageChange = (e: any) => {
     setCurrentPage(e.data);
@@ -87,9 +99,7 @@ export default function Flipbook({ edition }: { edition: Edition }) {
 
   const goToPage = (pageIndex: number) => {
     if (flipBookRef.current) {
-      setTimeout(() => {
-        flipBookRef.current?.pageFlip().flipTo(pageIndex);
-      }, 100);
+      flipBookRef.current.pageFlip().flipTo(pageIndex);
     }
   };
 
@@ -210,6 +220,7 @@ export default function Flipbook({ edition }: { edition: Edition }) {
             showCover={true}
             mobileScrollSupport={true}
             onFlip={handlePageChange}
+            onInit={onInit}
             className="shadow-2xl"
           >
             {pages.map((page, i) => (
