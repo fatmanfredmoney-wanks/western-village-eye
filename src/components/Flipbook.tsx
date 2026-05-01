@@ -90,11 +90,23 @@ function SocialShare({ title, url }: { title: string; url: string }) {
 
 export default function Flipbook({ edition }: { edition: Edition }) {
   const epubPath = `/editions/volume-${edition.volume.volumeNumber}-edition-${edition.editionNumber}.epub`;
-  const [currentPage, setCurrentPage] = useState(0);
   const { ref: flipBookRef, onInit } = useFlipBookRef();
 
   const handlePageChange = (e: any) => {
     setCurrentPage(e.data);
+  };
+
+  const goToPage = (pageIndex: number) => {
+    console.log("Going to page:", pageIndex);
+    if (flipBookRef.current) {
+      try {
+        flipBookRef.current.pageFlip().flipTo(pageIndex);
+      } catch (err) {
+        console.error("Flip error:", err);
+      }
+    } else {
+      console.log("Ref not ready");
+    }
   };
 
   const goToPage = (pageIndex: number) => {
