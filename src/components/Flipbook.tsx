@@ -71,14 +71,6 @@ function SocialShare({ title, url }: { title: string; url: string }) {
 
   return (
     <div className="flex items-center gap-2 mt-4">
-      <a
-        href={shareLinks.twitter}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="p-2 bg-black text-white rounded hover:bg-gray-800 transition-colors text-sm"
-      >
-        X
-      </a>
       <button
         onClick={handleCopy}
         className="p-2 bg-forest text-white rounded hover:bg-brown transition-colors flex items-center gap-1 text-sm"
