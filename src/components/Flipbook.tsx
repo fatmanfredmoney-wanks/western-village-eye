@@ -27,7 +27,6 @@ interface Article {
 interface Edition {
   _id: string;
   editionNumber: number;
-  publishedDate: string;
   volume: { volumeNumber: number; year: string };
   coverImage?: any;
   articles: Article[];
@@ -87,29 +86,16 @@ export default function Flipbook({ edition }: { edition: Edition }) {
   const epubPath = `/editions/volume-${edition.volume.volumeNumber}-edition-${edition.editionNumber}.epub`;
   const [currentPage, setCurrentPage] = useState(0);
   const flipBookRef = useRef<any>(null);
-  const flipBookInitialized = useRef(false);
 
   const handlePageChange = (e: any) => {
     setCurrentPage(e.data);
   };
 
-  const onInit = (book: any) => {
-    flipBookRef.current = book;
-    flipBookInitialized.current = true;
-  };
-
   const goToPage = (pageIndex: number) => {
-    setCurrentPage(pageIndex);
-  };
-
-  useEffect(() => {
-    if (flipBookInitialized.current && flipBookRef.current) {
-      const flipper = flipBookRef.current.pageFlip();
-      if (flipper) {
-        flipper.flipTo(currentPage);
-      }
+    if (flipBookRef.current) {
+      flipBookRef.current.pageFlip().flipTo(pageIndex);
     }
-  }, [currentPage]);
+  };
 
   const coverPage = (
     <div className="flipbook-page-inner flex flex-col justify-center items-center bg-brown text-cream relative overflow-hidden">
@@ -130,15 +116,15 @@ export default function Flipbook({ edition }: { edition: Edition }) {
     return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
   };
 
-  const editorName = edition.editionNumber === 1 ? "Decent Stick" : "Lonely Stick";
+  const editorName = edition.editionNumber === 1 ? 'Decent Stick' : 'Lonely Stick';
 
   const tocPage = (
     <div className="flipbook-page-inner flex flex-col justify-center items-center text-center p-8">
       <div className="rough-border p-8 bg-cream">
         <h1 className="text-4xl font-bold mb-2 font-display">Volume {edition.volume.volumeNumber}</h1>
         <h2 className="text-2xl mb-4">Edition {edition.editionNumber}</h2>
-        <p className="text-sm text-gray-600 mb-8">{edition.publishedDate ? formatDate(edition.publishedDate) : edition.volume.year}</p>
-        <p className="text-sm text-gray-600 mb-4">Editor: {editorName}</p>
+        <p className="text-sm text-gray-600 mb-4">{(edition as any).publishedDate ? formatDate((edition as any).publishedDate) : edition.volume.year}</p>
+        <p className="text-sm text-gray-600 mb-8">Editor: {editorName}</p>
         <div className="border-t border-brown pt-4">
           <h3 className="text-lg font-bold mb-4">Table of Contents</h3>
           <ul className="space-y-3 text-left">
@@ -150,6 +136,9 @@ export default function Flipbook({ edition }: { edition: Edition }) {
                 >
                   <span className="font-bold">{index + 1}.</span> {article.title}
                 </button>
+                {article.author && (
+                  <p className="text-xs text-gray-500 ml-4">by {article.author}</p>
+                )}
               </li>
             ))}
           </ul>
@@ -230,7 +219,6 @@ export default function Flipbook({ edition }: { edition: Edition }) {
             showCover={true}
             mobileScrollSupport={true}
             onFlip={handlePageChange}
-            onInit={onInit}
             className="shadow-2xl"
           >
             {pages.map((page, i) => (
