@@ -242,6 +242,23 @@ export default function Flipbook({ edition }: { edition: Edition }) {
           </div>
         </div>
         
+        {/* External, always-interactive Table of Contents */}
+        <div className="mb-6 bg-cream rough-border p-6">
+          <h3 className="text-lg font-bold mb-3 text-brown">Jump to a section</h3>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
+            {edition.articles.map((article, index) => (
+              <button
+                key={article._id}
+                type="button"
+                onClick={() => goToPage(index + 2)}
+                className="text-left text-sm px-3 py-2 bg-tan/30 hover:bg-forest hover:text-cream rounded transition-colors"
+              >
+                <span className="font-bold">{index + 1}.</span> {article.title}
+              </button>
+            ))}
+          </div>
+        </div>
+
         <div className="flex justify-center" ref={flipbookWrapperRef}>
           {/* @ts-ignore - react-pageflip types are incomplete */}
           <HTMLFlipBook
