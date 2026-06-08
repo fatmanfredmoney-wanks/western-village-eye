@@ -86,16 +86,13 @@ export default function Flipbook({ edition }: { edition: Edition }) {
   const epubPath = `/editions/volume-${edition.volume.volumeNumber}-edition-${edition.editionNumber}.epub`;
   const [currentPage, setCurrentPage] = useState(0);
   const flipBookRef = useRef<any>(null);
+  const flipbookWrapperRef = useRef<HTMLDivElement>(null);
 
   const handlePageChange = (e: any) => {
     setCurrentPage(e.data);
   };
 
-  const goToPage = (pageIndex: number, e?: React.MouseEvent) => {
-    if (e) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
+  const goToPage = (pageIndex: number) => {
     if (flipBookRef.current) {
       try {
         const pageFlip = flipBookRef.current.pageFlip();
@@ -107,6 +104,30 @@ export default function Flipbook({ edition }: { edition: Edition }) {
       }
     }
   };
+
+  // Event delegation: react-pageflip moves/clones DOM nodes which detaches
+  // React event handlers. We attach a native click listener to the outer
+  // wrapper so TOC clicks survive the library's DOM manipulation.
+  useEffect(() => {
+    const wrapper = flipbookWrapperRef.current;
+    if (!wrapper) return;
+
+    const handleClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const tocBtn = target.closest("[data-toc-page]") as HTMLElement | null;
+      if (tocBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        const pageIndex = parseInt(tocBtn.getAttribute("data-toc-page") || "0", 10);
+        goToPage(pageIndex);
+      }
+    };
+
+    wrapper.addEventListener("click", handleClick, true);
+    return () => {
+      wrapper.removeEventListener("click", handleClick, true);
+    };
+  }, []);
 
   const coverPage = (
     <div className="flipbook-page-inner flex flex-col justify-center items-center bg-brown text-cream relative overflow-hidden">
@@ -138,19 +159,11 @@ export default function Flipbook({ edition }: { edition: Edition }) {
         <p className="text-sm text-gray-600 mb-8">Editor: {editorName}</p>
         <div className="border-t border-brown pt-4">
           <h3 className="text-lg font-bold mb-4">Table of Contents</h3>
-          <ul
-            className="space-y-3 text-left"
-            onMouseDown={(e) => e.stopPropagation()}
-            onTouchStart={(e) => e.stopPropagation()}
-          >
+          <ul className="space-y-3 text-left">
             {edition.articles.map((article, index) => (
               <li key={article._id}>
                 <button
-                  onMouseDown={(e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                  }}
-                  onClick={(e) => goToPage(index + 2, e)}
+                  data-toc-page={index + 2}
                   className="hover:text-forest hover:underline text-left cursor-pointer"
                   type="button"
                 >
@@ -229,7 +242,7 @@ export default function Flipbook({ edition }: { edition: Edition }) {
           </div>
         </div>
         
-        <div className="flex justify-center">
+        <div className="flex justify-center" ref={flipbookWrapperRef}>
           {/* @ts-ignore - react-pageflip types are incomplete */}
           <HTMLFlipBook
             ref={flipBookRef}
