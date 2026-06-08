@@ -91,9 +91,20 @@ export default function Flipbook({ edition }: { edition: Edition }) {
     setCurrentPage(e.data);
   };
 
-  const goToPage = (pageIndex: number) => {
+  const goToPage = (pageIndex: number, e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     if (flipBookRef.current) {
-      flipBookRef.current.pageFlip().flipTo(pageIndex);
+      try {
+        const pageFlip = flipBookRef.current.pageFlip();
+        if (pageFlip) {
+          pageFlip.flipTo(pageIndex);
+        }
+      } catch (err) {
+        console.error("Flip error:", err);
+      }
     }
   };
 
@@ -127,12 +138,21 @@ export default function Flipbook({ edition }: { edition: Edition }) {
         <p className="text-sm text-gray-600 mb-8">Editor: {editorName}</p>
         <div className="border-t border-brown pt-4">
           <h3 className="text-lg font-bold mb-4">Table of Contents</h3>
-          <ul className="space-y-3 text-left">
+          <ul
+            className="space-y-3 text-left"
+            onMouseDown={(e) => e.stopPropagation()}
+            onTouchStart={(e) => e.stopPropagation()}
+          >
             {edition.articles.map((article, index) => (
               <li key={article._id}>
                 <button
-                  onClick={() => goToPage(index + 2)}
-                  className="hover:text-forest hover:underline text-left"
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }}
+                  onClick={(e) => goToPage(index + 2, e)}
+                  className="hover:text-forest hover:underline text-left cursor-pointer"
+                  type="button"
                 >
                   <span className="font-bold">{index + 1}.</span> {article.title}
                 </button>
@@ -219,6 +239,8 @@ export default function Flipbook({ edition }: { edition: Edition }) {
             showCover={true}
             mobileScrollSupport={true}
             onFlip={handlePageChange}
+            useMouseEvents={true}
+            clickEventForward={true}
             className="shadow-2xl"
           >
             {pages.map((page, i) => (
