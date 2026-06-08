@@ -97,7 +97,7 @@ export default function Flipbook({ edition }: { edition: Edition }) {
       try {
         const pageFlip = flipBookRef.current.pageFlip();
         if (pageFlip) {
-          pageFlip.flipTo(pageIndex);
+          pageFlip.flip(pageIndex);
         }
       } catch (err) {
         console.error("Flip error:", err);
