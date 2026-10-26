@@ -218,6 +218,9 @@ export default function Header({ volumes }: { volumes: Volume[] }) {
               </button>
               {contributeOpen && (
                 <div className="absolute right-0 top-full mt-2 w-56 bg-cream text-brown rounded shadow-lg z-50 border-2 border-brown">
+                  <div className="px-4 py-3 text-sm font-bold italic text-center border-b-2 border-brown cursor-default select-none">
+                    Share your thoughts and opinions in the next edition!
+                  </div>
                   {CONTRIBUTE_OPTIONS.map((option) => (
                     <Link
                       key={option.id}
