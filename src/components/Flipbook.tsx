@@ -148,7 +148,7 @@ export default function Flipbook({ edition }: { edition: Edition }) {
     return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
   };
 
-  const editorName = edition.editionNumber === 1 ? 'Decent Stick' : edition.editionNumber === 2 ? 'Lonely Stick' : 'Above Average Stick';
+  const editorName = edition.editionNumber === 1 ? 'Decent Stick' : edition.editionNumber === 2 ? 'Lonely Stick' : edition.editionNumber === 3 ? 'Above Average Stick' : 'Medium Stick';
 
   const tocPage = (
     <div className="flipbook-page-inner flex flex-col justify-center items-center text-center p-8">
