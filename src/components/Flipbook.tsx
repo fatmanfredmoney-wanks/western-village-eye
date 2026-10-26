@@ -83,7 +83,7 @@ function SocialShare({ title, url }: { title: string; url: string }) {
 }
 
 export default function Flipbook({ edition }: { edition: Edition }) {
-  const epubPath = `/editions/volume-${edition.volume.volumeNumber}-edition-${edition.editionNumber}.epub`;
+  const epubPath = `/download/volume-${edition.volume.volumeNumber}-edition-${edition.editionNumber}`;
   const [currentPage, setCurrentPage] = useState(0);
   const flipBookRef = useRef<any>(null);
   const flipbookWrapperRef = useRef<HTMLDivElement>(null);
@@ -230,7 +230,6 @@ export default function Flipbook({ edition }: { edition: Edition }) {
           <div className="flex items-center gap-4">
             <a
               href={epubPath}
-              download
               className="flex items-center gap-2 bg-forest text-cream px-4 py-2 rounded-lg hover:bg-brown transition-colors text-sm shadow-md"
             >
               <Download className="w-4 h-4" />

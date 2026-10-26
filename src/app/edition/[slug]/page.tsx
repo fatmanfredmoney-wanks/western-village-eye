@@ -19,7 +19,7 @@ export default async function EditionPage({ params }: Props) {
     notFound();
   }
 
-  const epubPath = `/editions/volume-${edition.volume.volumeNumber}-edition-${edition.editionNumber}.epub`;
+  const epubPath = `/download/volume-${edition.volume.volumeNumber}-edition-${edition.editionNumber}`;
 
   return (
     <div className="min-h-screen bg-tan/30">
@@ -33,7 +33,6 @@ export default async function EditionPage({ params }: Props) {
           </Link>
           <a
             href={epubPath}
-            download
             className="flex items-center gap-2 bg-forest text-cream px-6 py-3 rounded-lg hover:bg-brown transition-colors font-display shadow-md"
           >
             <Download className="w-5 h-5" />

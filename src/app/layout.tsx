@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Nav from "@/components/Nav";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   title: "The Western Village Eye - Almost Uncivilized",
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className="antialiased">
         <Nav />
         {children}
+        <Analytics />
       </body>
     </html>
   );

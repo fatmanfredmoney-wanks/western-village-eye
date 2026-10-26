@@ -45,7 +45,7 @@ export default async function VolumesPage() {
                 {volume.editions && volume.editions.length > 0 ? (
                   <div className="grid sm:grid-cols-2 gap-4">
                     {volume.editions.map((edition: any) => {
-                      const epubPath = `/editions/volume-${volume.volumeNumber}-edition-${edition.editionNumber}.epub`;
+                      const epubPath = `/download/volume-${volume.volumeNumber}-edition-${edition.editionNumber}`;
                       return (
                         <div
                           key={edition._id}
@@ -77,7 +77,6 @@ export default async function VolumesPage() {
                             </Link>
                             <a
                               href={epubPath}
-                              download
                               className="flex items-center gap-1 bg-tan text-brown border-2 border-brown px-4 py-2 rounded hover:bg-brown hover:text-cream transition-colors text-sm font-medium"
                             >
                               <Download className="w-4 h-4" />
